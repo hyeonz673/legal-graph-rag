@@ -1,15 +1,13 @@
 # Legal AI Chatbot
 
-> **법률 챗봇 시스템**
+> **누구나 쉽고 정확하게 법률 정보를 찾는 AI 챗봇**
 
-Legal AI Chatbot은 고성능 벡터 검색(Vector Search)과 로컬 LLM을 결합하여, 법률 질문에 대해 검증 가능하고 할루시네이션(Hallucination)이 최소화된 답변을 제공하는 프로젝트입니다. 모든 데이터와 모델이 로컬 환경에서 안전하게 구동되도록 설계되었습니다.
+Legal AI Chatbot은 복잡하고 어려운 법률 문제로 고민하는 일반인들을 위해 만들어졌습니다. 고성능 벡터 검색(Vector Search) 기술을 활용하여 사용자의 질문을 법률적 문맥으로 이해하고, 신뢰할 수 있는 법령과 판례를 기반으로 명확한 답변을 제공합니다.
 
 ## 🌟 주요 특징
 
-*   **🔒 Local Environment**: 외부 API 의존 없이 Ollama(LLM), Chroma(Vector DB)를 활용하여 로컬에서 완벽하게 동작합니다.
-*   **🎯 High-Precision Retrieval**: 
-    *   **Deep Semantic Search**: 문맥적 의미를 파악하는 Dense Vector 검색을 수행합니다.
-    *   **Reranking**: 검색된 후보군을 정밀하게 재순위화하여 최적의 법적 근거를 선별합니다.
+*   **🤝 Accessibility**: 법률 전문가가 아니어도 자연어로 편하게 질문할 수 있습니다.
+*   **🎯 High-Precision**: 사용자의 질문 의도를 정확히 파악하여, 방대한 법령 데이터 속에서 꼭 필요한 정보를 찾아냅니다.
 *   **📝 Verifiable Citations**: LLM이 생성한 답변에 반드시 실제 법령/조문/판례의 출처를 명시하도록 강제하여 신뢰성을 보장합니다.
 
 ## 🏗️ 아키텍처
