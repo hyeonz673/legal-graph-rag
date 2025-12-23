@@ -19,12 +19,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Build Marp presentation
-        uses: marp-team/marp-cli-action@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          path: docs/presentation.md
-          output: build/index.html
-          html: true
+          node-version: '18'
+
+      - name: Install Marp CLI
+        run: npm install -g @marp-team/marp-cli
+
+      - name: Build Marp presentation
+        run: marp docs/presentation.md -o build/index.html --html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
