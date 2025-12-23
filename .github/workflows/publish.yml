@@ -1,0 +1,33 @@
+name: Publish Presentation to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'docs/presentation.md'
+      - '.github/workflows/publish.yml'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Build Marp presentation
+        uses: marp-team/marp-cli-action@v2
+        with:
+          path: docs/presentation.md
+          output: build/index.html
+          html: true
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
